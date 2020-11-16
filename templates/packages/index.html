@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <table class="table">
+
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Package_Name</th>
+                <th>Package_CUOS</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for package in packages %}
+                <tr>
+                    <td class="align-middle">{{ package.package_id }}</td>
+                    <td>
+                        <a href="{% url 'packages:package' package.pk %}">{{ package.package_name }}</a>
+                        <!-- app_name : url_name, create href page first (next linking page) or else just place '#'-->
+                    </td>
+                    <td>
+                        <a href="{% url 'cuos:cuos_url'  %}">Corresponding CUOS sheet</a>
+                    </td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+{% endblock body %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-7 col-md-8 col-sm-12">
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h4 class="card-title text-center">Sign Up - Software ECM Overview</h4>
+
+                    <form method="POST" novalidate>
+
+                        {% csrf_token %}
+
+                        {{ form|crispy }}
+
+                        <div class="form-group">
+                            <button class="btn btn-block btn-info" type="submit">Sign Up</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <div class="card-footer text-muted text-center">
+
+                    Already Have An Account? <a class="ml-2" href="{% url 'accounts:login' %}">Log In</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock body %}

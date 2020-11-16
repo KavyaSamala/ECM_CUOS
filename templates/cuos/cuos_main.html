@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <table class="table">
+
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Controller</th>
+                <th>TLA (Source Address)</th>
+                <th>isMaster</th>
+                <th>Engineering Definition</th>
+                <th>Hardware Part</th>
+                <th>Hardware changed</th>
+                <th>SCP changed</th>
+                <th>Diagnose address changed</th>
+                <th>Software Part</th>
+                <th>Software Filename</th>
+                <th>Version</th>
+                <th>Remarks - Function</th>
+                <th>Payload ID</th>
+                <th>Payload Changed</th>
+                <th>Source Address Changed</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% for sa, hw, sw, pl in results %}
+        <tr>
+                <td class="align-middle">{{ con.controller_id }}</td>
+                <td class="align-middle">{{ con.controller_name }}</td>
+
+                <td class="align-middle">{{ sa.TLA_source_addr }}</td>
+                <td class="align-middle">{{ sa.IsMaster }}</td>
+                <td class="align-middle">{{ sa.EnggDef }}</td>
+
+                <td class="align-middle">{{ hw.hardware_name }}</td>
+                <td class="align-middle">{{ hw.hardware_change }}</td>
+                <td class="align-middle">{{ hw.SCP_changed }}</td>
+                <td class="align-middle">{{ hw.Diagnose_address_changed }}</td>
+
+                <td class="align-middle">{{ sw.software_part }}</td>
+                <td class="align-middle">{{ sw.software_filename }}</td>
+                <td class="align-middle">{{ sw.software_version }}</td>
+                <td class="align-middle">{{ sw.remarks }}</td>
+
+                <td class="align-middle">{{ pl.payload_id }}</td>
+                <td class="align-middle">{{ pl.payload_changed }}</td>
+                <td class="align-middle">{{ pl.source_addr_change }}</td>
+
+        </tr>
+        {% endfor %}
+
+        </tbody>
+   </table>
+
+{% endblock body %}

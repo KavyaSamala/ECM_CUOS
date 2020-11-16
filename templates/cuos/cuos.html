@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <table class="table">
+
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>CUOS_Version Table</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for m in mversions %}
+            <!-- mversions is an object/list which points the data in the data model, why would you use an object/ list in url path name???-->
+            <tr>
+                <td class="align-middle">{{ m.multiple_version_id }}</td>
+                <td>
+                      <a href="{% url 'cuos:cuos_url1' m.pk %}">{{ m.multiple_version_name }}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+</table>
+{% endblock body %}

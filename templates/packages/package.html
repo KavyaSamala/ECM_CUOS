@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <table class="table">
+
+        <thead class="thead-dark">
+        <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th colspan="3">6M SparrowBrazil PSI52b/d</th>
+                <th colspan="3">6M SparrowBrazil PSI52j/k/l</th>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>Control Unit</th>
+                <th>Payload</th>
+                <th>Responsible Team</th>
+                <th>SFC SW Name</th>
+                <th>SW_ECM</th>
+                <th>SW_ETN</th>
+                <th>SW_Assembly</th>
+                <th>SW_ECM</th>
+                <th>SW_ETN</th>
+                <th>SW_Assembly</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for cu, ci, se, ss, v1, v2 in results %}
+                <tr>
+                    <td class="align-middle">{{ cu.control_unit_id }}</td>
+                    <td class="align-middle">{{ cu.control_unit_name }}</td>
+
+                    <td class="align-middle">{{ ci.payload }}</td>
+
+                    <td class="align-middle">{{ se.responsible_team }}</td>
+
+                    <td class="align-middle">{{ ss.sfc_sw_name }}</td>
+
+                    <td class="align-middle">{{ v1.sw_ecm }}</td>
+                    <td class="align-middle">{{ v1.sw_etn }}</td>
+                    <td class="align-middle">{{ v1.sw_assembly }}</td>
+
+                    <td class="align-middle">{{ v2.sw_ecm }}</td>
+                    <td class="align-middle">{{ v2.sw_etn }}</td>
+                    <td class="align-middle">{{ v2.sw_assembly }}</td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock body %}
